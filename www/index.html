@@ -9,8 +9,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=DM+Mono:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Space+Mono:wght@400;700&display=swap"
         rel="stylesheet">
     <!-- Anime.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
@@ -27,25 +26,26 @@
         <div class="w-full max-w-md space-y-12">
             <div class="text-center space-y-2">
                 <h1 class="text-5xl font-bold tracking-tighter uppercase">Habet<span class="text-accent">.</span></h1>
-                <p class="text-dim text-xs tracking-[0.2em] uppercase">Nothing but consistency</p>
+                <p class="text-dim text-xs tracking-[0.2em] uppercase font-dot">Nothing but consistency</p>
             </div>
 
             <div class="space-y-8">
                 <div class="group">
-                    <label class="block text-[10px] text-dim mb-2 tracking-widest uppercase">Protocol</label>
-                    <input type="text" id="habit-name" class="input-field text-2xl" placeholder="READ 30 MINS"
+                    <label class="block text-sm text-white/80 mb-2 tracking-widest uppercase font-dot">Habit</label>
+                    <input type="text" id="habit-name" class="input-field text-2xl font-dot" placeholder="READ 30 MINS"
                         autocomplete="off">
                 </div>
 
                 <div class="group">
-                    <label class="block text-[10px] text-dim mb-2 tracking-widest uppercase">Stake ($)</label>
-                    <input type="number" id="stake-amount" class="input-field text-2xl" placeholder="500"
+                    <label class="block text-sm text-white/80 mb-2 tracking-widest uppercase font-dot">Stake ($)</label>
+                    <input type="number" id="stake-amount" class="input-field text-2xl font-dot" placeholder="500"
                         autocomplete="off">
                 </div>
 
                 <div class="group">
-                    <label class="block text-[10px] text-dim mb-2 tracking-widest uppercase">Duration (Days)</label>
-                    <input type="number" id="total-days" class="input-field text-2xl" placeholder="30"
+                    <label class="block text-sm text-white/80 mb-2 tracking-widest uppercase font-dot">Duration
+                        (Days)</label>
+                    <input type="number" id="total-days" class="input-field text-2xl font-dot" placeholder="30"
                         autocomplete="off">
                 </div>
             </div>
@@ -61,15 +61,16 @@
         <!-- Header -->
         <header class="p-6 flex justify-between items-start">
             <div>
-                <h1 class="text-2xl font-bold tracking-tighter uppercase">Habet<span class="text-accent">.</span></h1>
+                <h1 class="text-2xl font-dot tracking-tighter uppercase">Habet<span class="text-accent">.</span></h1>
                 <div class="flex items-center gap-2 mt-1">
                     <div id="status-dot" class="w-1.5 h-1.5 bg-dim rounded-full"></div>
-                    <span id="status-text" class="text-[10px] tracking-widest text-dim uppercase">Standby</span>
+                    <span id="status-text"
+                        class="text-[10px] tracking-widest text-dim uppercase font-dot">Standby</span>
                 </div>
             </div>
             <div class="text-right">
-                <div class="text-xs text-dim tracking-widest">DAY</div>
-                <div class="text-xl font-bold"><span id="current-day-display">01</span><span
+                <div class="text-xs text-dim tracking-widest font-dot">DAY</div>
+                <div class="text-xl font-bold font-dot"><span id="current-day-display">01</span><span
                         class="text-dim">/</span><span id="total-days-display">30</span></div>
             </div>
         </header>
@@ -93,26 +94,27 @@
                 <button id="check-in-btn"
                     class="w-56 h-56 rounded-full bg-black border border-dim flex flex-col items-center justify-center hover:border-white transition-colors duration-300 focus:outline-none z-10 group">
                     <span id="btn-text"
-                        class="text-xl font-bold tracking-widest group-hover:scale-105 transition-transform duration-300">CHECK
+                        class="text-xl font-bold tracking-widest group-hover:scale-105 transition-transform duration-300 font-dot">CHECK
                         IN</span>
                     <span id="btn-subtext"
-                        class="text-[10px] text-dim mt-1 tracking-widest uppercase group-hover:text-white transition-colors duration-300">Tap
+                        class="text-[10px] text-dim mt-1 tracking-widest uppercase group-hover:text-white transition-colors duration-300 font-dot">Tap
                         to confirm</span>
                 </button>
             </div>
 
             <!-- Cash Display (Minimal) -->
             <div class="mt-12 text-center">
-                <div class="text-[10px] text-dim tracking-widest uppercase mb-1">Stake Remaining</div>
-                <div class="text-3xl font-bold tracking-tighter">$<span id="money-display">0</span></div>
+                <div class="text-[10px] text-dim tracking-widest uppercase mb-1 font-dot">Stake Remaining</div>
+                <div class="text-3xl font-bold tracking-tighter font-dot">$<span id="money-display">0</span></div>
             </div>
 
             <!-- Forfeit Overlay (Minimal) -->
             <div id="forfeit-overlay"
                 class="absolute inset-0 bg-black/95 flex flex-col items-center justify-center z-50 hidden backdrop-blur-sm">
-                <h1 class="text-accent text-4xl font-bold mb-2 tracking-tighter uppercase">Protocol Failed</h1>
-                <p class="text-dim text-sm mb-8 tracking-widest uppercase">Stake Lost</p>
-                <button id="reset-btn" class="btn-primary border-accent text-accent hover:bg-accent hover:text-white">
+                <h1 class="text-accent text-4xl font-bold mb-2 tracking-tighter uppercase font-dot">Protocol Failed</h1>
+                <p class="text-dim text-sm mb-8 tracking-widest uppercase font-dot">Stake Lost</p>
+                <button id="reset-btn"
+                    class="btn-primary border-accent text-accent hover:bg-accent hover:text-white font-dot">
                     Restart
                 </button>
             </div>

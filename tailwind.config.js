@@ -7,10 +7,11 @@ module.exports = {
         black: '#000000',
         white: '#FFFFFF',
         accent: '#FF0033',
-        dim: '#333333',
+        dim: '#666666', // Increased brightness for visibility
       },
       fontFamily: {
-        mono: ['"Courier Prime"', '"DM Mono"', '"Space Mono"', 'monospace'],
+        mono: ['"Space Mono"', '"Courier Prime"', 'monospace'],
+        dot: ['"DotGothic16"', 'sans-serif'],
       },
       borderRadius: {
         'none': '0px',
