@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-white font-mono overflow-hidden;
+  }
+  
+  /* Custom Scrollbar Hide */
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+  .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply border border-white bg-black text-white uppercase px-6 py-3 hover:bg-white hover:text-black transition-colors duration-200;
+  }
+  
+  .input-field {
+    @apply bg-transparent border-b border-white text-white font-mono text-xl w-full py-2 focus:outline-none focus:border-accent placeholder-dim;
+  }
+}

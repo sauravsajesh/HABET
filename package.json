@@ -1,0 +1,17 @@
+{
+  "name": "habet",
+  "version": "1.0.0",
+  "description": "High-stakes habit tracker",
+  "main": "www/app.js",
+  "scripts": {
+    "build": "npx tailwindcss -i ./www/input.css -o ./www/output.css",
+    "watch": "npx tailwindcss -i ./www/input.css -o ./www/output.css --watch",
+    "serve": "npx serve www"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}

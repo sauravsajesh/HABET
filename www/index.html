@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>HABET</title>
+    <link href="./output.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=DM+Mono:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+
+<body class="bg-black text-white font-mono h-screen w-screen overflow-hidden select-none flex flex-col">
+
+    <!-- Audio -->
+    <audio id="click-sound" src="./assets/click.mp3" preload="auto"></audio>
+
+    <!-- Onboarding Section -->
+    <section id="onboarding"
+        class="h-full w-full flex flex-col justify-center items-center p-8 hidden z-50 bg-black absolute inset-0">
+        <div class="w-full max-w-md space-y-12">
+            <div class="text-center space-y-2">
+                <h1 class="text-5xl font-bold tracking-tighter uppercase">Habet<span class="text-accent">.</span></h1>
+                <p class="text-dim text-xs tracking-[0.2em] uppercase">Nothing but consistency</p>
+            </div>
+
+            <div class="space-y-8">
+                <div class="group">
+                    <label class="block text-[10px] text-dim mb-2 tracking-widest uppercase">Protocol</label>
+                    <input type="text" id="habit-name" class="input-field text-2xl" placeholder="READ 30 MINS"
+                        autocomplete="off">
+                </div>
+
+                <div class="group">
+                    <label class="block text-[10px] text-dim mb-2 tracking-widest uppercase">Stake ($)</label>
+                    <input type="number" id="stake-amount" class="input-field text-2xl" placeholder="500"
+                        autocomplete="off">
+                </div>
+
+                <div class="group">
+                    <label class="block text-[10px] text-dim mb-2 tracking-widest uppercase">Duration (Days)</label>
+                    <input type="number" id="total-days" class="input-field text-2xl" placeholder="30"
+                        autocomplete="off">
+                </div>
+            </div>
+
+            <button id="start-btn" class="btn-primary w-full mt-8 border-dim hover:border-white">
+                INITIALIZE
+            </button>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="h-full w-full flex flex-col relative hidden">
+        <!-- Header -->
+        <header class="p-6 flex justify-between items-start">
+            <div>
+                <h1 class="text-2xl font-bold tracking-tighter uppercase">Habet<span class="text-accent">.</span></h1>
+                <div class="flex items-center gap-2 mt-1">
+                    <div id="status-dot" class="w-1.5 h-1.5 bg-dim rounded-full"></div>
+                    <span id="status-text" class="text-[10px] tracking-widest text-dim uppercase">Standby</span>
+                </div>
+            </div>
+            <div class="text-right">
+                <div class="text-xs text-dim tracking-widest">DAY</div>
+                <div class="text-xl font-bold"><span id="current-day-display">01</span><span
+                        class="text-dim">/</span><span id="total-days-display">30</span></div>
+            </div>
+        </header>
+
+        <!-- Main Content (Circular Battery & Button) -->
+        <main class="flex-1 flex flex-col justify-center items-center relative">
+
+            <!-- Circular Container -->
+            <div class="relative w-72 h-72 flex items-center justify-center">
+                <!-- SVG Ring -->
+                <svg class="absolute inset-0 w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                    <!-- Track -->
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#333" stroke-width="2" />
+                    <!-- Progress (Liquid) -->
+                    <circle id="battery-ring" cx="50" cy="50" r="45" fill="none" stroke="#00FF00" stroke-width="4"
+                        stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="0"
+                        class="transition-all duration-1000 ease-out" />
+                </svg>
+
+                <!-- The Button -->
+                <button id="check-in-btn"
+                    class="w-56 h-56 rounded-full bg-black border border-dim flex flex-col items-center justify-center hover:border-white transition-colors duration-300 focus:outline-none z-10 group">
+                    <span id="btn-text"
+                        class="text-xl font-bold tracking-widest group-hover:scale-105 transition-transform duration-300">CHECK
+                        IN</span>
+                    <span id="btn-subtext"
+                        class="text-[10px] text-dim mt-1 tracking-widest uppercase group-hover:text-white transition-colors duration-300">Tap
+                        to confirm</span>
+                </button>
+            </div>
+
+            <!-- Cash Display (Minimal) -->
+            <div class="mt-12 text-center">
+                <div class="text-[10px] text-dim tracking-widest uppercase mb-1">Stake Remaining</div>
+                <div class="text-3xl font-bold tracking-tighter">$<span id="money-display">0</span></div>
+            </div>
+
+            <!-- Forfeit Overlay (Minimal) -->
+            <div id="forfeit-overlay"
+                class="absolute inset-0 bg-black/95 flex flex-col items-center justify-center z-50 hidden backdrop-blur-sm">
+                <h1 class="text-accent text-4xl font-bold mb-2 tracking-tighter uppercase">Protocol Failed</h1>
+                <p class="text-dim text-sm mb-8 tracking-widest uppercase">Stake Lost</p>
+                <button id="reset-btn" class="btn-primary border-accent text-accent hover:bg-accent hover:text-white">
+                    Restart
+                </button>
+            </div>
+        </main>
+    </section>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
